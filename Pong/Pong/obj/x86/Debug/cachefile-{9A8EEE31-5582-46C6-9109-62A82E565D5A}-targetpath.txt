@@ -1,0 +1,4 @@
+Content\dot.xnb
+Content\Player.xnb
+Content\dot.png
+Content\Player.png
