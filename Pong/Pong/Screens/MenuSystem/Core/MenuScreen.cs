@@ -33,8 +33,8 @@ namespace Pong.Screens
         {
             get
             {
-                menuEntries.OrderByDescending(m => m.StringWidth);
-                return menuEntries[0].StringWidth;
+                menuEntries.OrderByDescending(m => m.Getwidth());
+                return menuEntries[0].Getwidth();
             }
         }
 
@@ -127,6 +127,9 @@ namespace Pong.Screens
 
         public virtual void Update(float delta)
         {
+            camera.Update(delta);
+            HandleInput();
+
             for (int index = 0; index < menuEntries.Count; index++)
             {
                 bool isSelected = index == selectedEntry;
@@ -139,28 +142,20 @@ namespace Pong.Screens
         {
             AnimateMenuEntry();
 
-            batch.Begin();
+            batch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, camera.Transform);
 
             for (int index = 0; index < menuEntries.Count; index++)
             {
                 MenuEntry menuEntry = menuEntries[index];
 
-                bool isSelected = (index == selectedEntry);
-
+                menuEntry.isSelected = (index == selectedEntry);
                 menuEntry.Draw(batch);
-                float sidebarOffset = menuEntry.StringWidth;
             }
 
-            float transitionOffset = (float)Math.Pow(TransitionPosition, offset);
-            Vector2 titlePosition = new Vector2(camera.Viewport.Width / 2, camera.Viewport.Height / 2 / 2);
-            if (SideMenu)
-                titlePosition.X = SidebarOffset + camera.Viewport.Width / 2;
-
+            Vector2 titlePosition = new Vector2(0, -300);
+            Color titleColor = Color.White;
             Vector2 titleOrigin = font.MeasureString(menuTitle) / 2;
-            Color titleColor = new Color(192, 192, 192) * TransitionAlpha;
-            float titleScale = 1.25f;
-
-            titlePosition.Y -= transitionOffset * 500;
+            float titleScale = 1f;
 
             batch.DrawString(font, menuTitle, titlePosition, titleColor, 0, titleOrigin, titleScale, SpriteEffects.None, 0);
 

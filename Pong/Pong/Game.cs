@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Pong.Screens;
 using Pong.Utilities;
+using Pong.Screens.MenuSystem.Menus;
 
 namespace Pong
 {
@@ -36,7 +37,7 @@ namespace Pong
             rnd = new Random();
             dot = Content.Load<Texture2D>("Graphics/dot");
             screenMngr = new ScreenManager(this);
-            screenMngr.SetScreen(new MainMenu(this));
+            screenMngr.SetScreen(new MainMenuScreen(this, "Pong"));
             base.Initialize();
         }
 

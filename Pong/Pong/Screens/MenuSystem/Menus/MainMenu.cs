@@ -13,7 +13,9 @@ namespace Pong.Screens
     class MainMenu : BaseScreen, IScreen
     {
         string[] items = {
-            "Play",
+            "AI",
+            "Versus",
+            "Online",
             "Exit"
         };
 
@@ -51,9 +53,15 @@ namespace Pong.Screens
                 switch (selected)
                 {
                     case 0:
-                        Game.screenMngr.SetScreen(new GameScreen(parent, GameMode.Versus));
+                        Game.screenMngr.SetScreen(new GameScreen(parent, GameMode.AI));
                         break;
                     case 1:
+                        Game.screenMngr.SetScreen(new GameScreen(parent, GameMode.Versus));
+                        break;
+                    case 2:
+                        Game.screenMngr.SetScreen(new GameScreen(parent, GameMode.Online));
+                        break;
+                    case 3:
                         parent.Exit();
                         break;
                 }

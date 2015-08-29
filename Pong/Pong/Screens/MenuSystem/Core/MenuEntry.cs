@@ -11,11 +11,7 @@ namespace Pong.Screens
     {
         private string text;
         private Vector2 position;
-        SpriteFont font;
-        private float selectionFade;
-
-
-
+        private SpriteFont font;
         public bool isSelected;
 
         public string Text
@@ -38,48 +34,34 @@ namespace Pong.Screens
                 Selected(this, new EventArgs());
         }
 
-        public int StringWidth
-        {
-            get
-            {
-                if (font != null)
-                    return (int)font.MeasureString(text).X;
-                else
-                    return 0;
-            }
-        }
-
-        public MenuEntry(MainMenu parent, string text)
+        public MenuEntry(string text, SpriteFont font)
         {
             this.text = text;
-            this.font = parent.LoadFont("atari full");
+            this.font = font;
         }
 
-
-        public virtual int Getwidth(MenuScreen screen)
+        public virtual int Getwidth()
         {
-
             return (int)font.MeasureString(text).X;
         }
 
-        public virtual int GetHeight(MenuScreen screen)
+        public virtual int GetHeight()
         {
-            return (int)font.LineSpacing;
+            return (int)font.MeasureString(text).Y;
         }
 
         public virtual void Update(float delta)
         {
-            float fadeSped = delta * 4;
-            fadeSped = (isSelected) ? fadeSped : -fadeSped;
-            selectionFade = Math.Max(selectionFade + fadeSped, 0);
+
         }
 
         public virtual void Draw(SpriteBatch batch)
         {
             Color color = isSelected ? Color.Yellow : Color.White;
-            Vector2 origin = new Vector2(0, font.LineSpacing / 2);
+            Vector2 origin = new Vector2(GetHeight() / 2, Getwidth() / 2);
             float scale = 1;
-            batch.DrawString(font, text, position, color, 0, origin, scale, SpriteEffects.None, 0);
+            float rotation = 0;
+            batch.DrawString(font, text, position, color, rotation, origin, scale, SpriteEffects.None, 0);
         }
     }
 }
