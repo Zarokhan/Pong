@@ -75,7 +75,6 @@
     <Compile Include="Gameworld\Entities\Ball.cs" />
     <Compile Include="Gameworld\GameMode.cs" />
     <Compile Include="Screens\MainMenu.cs" />
-    <Compile Include="Utilities\AssetManager.cs" />
     <Compile Include="Gameworld\Entities\Entity.cs" />
     <Compile Include="Gameworld\Entities\IEntitiy.cs" />
     <Compile Include="Gameworld\Entities\Player.cs" />

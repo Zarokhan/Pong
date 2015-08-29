@@ -8,7 +8,7 @@ namespace Pong.Screens
 {
     class ScreenManager
     {
-        Game parent;
+        private Game parent;
         private IScreen currentScreen;
         
         public ScreenManager(Game parent)

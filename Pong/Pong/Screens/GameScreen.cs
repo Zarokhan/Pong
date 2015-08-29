@@ -13,20 +13,24 @@ namespace Pong.Screens
 {
     class GameScreen : BaseScreen, IScreen
     {
-        World world;
+        // Global variables
+        private World world;
 
+        // Constructor
         public GameScreen(Game parent, GameMode mode) 
             : base(parent)
         {
             world = new World(this, mode);
         }
 
+        // Update loop
         public void Update(float delta)
         {
             camera.Update(delta);
             world.Update(delta);
         }
 
+        // Render loop
         public void Draw()
         {
             batch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, camera.Transform);
@@ -34,11 +38,14 @@ namespace Pong.Screens
             batch.End();
         }
 
+        // Dispose method
         public void Dispose()
         {
             content.Dispose();
             batch.Dispose();
         }
+
+        // Getters
 
         public ContentManager GetContent()
         {

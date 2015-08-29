@@ -10,9 +10,9 @@ namespace Pong.Gameworld.Entities
 {
     class Player : Entity
     {
-        public const float MAX_VELOCITY = 200f;
-        public const float ACCELERATION = 20f;
-        public const float RETARDATION = 15f;
+        public const float MAX_VELOCITY = 500f;
+        public const float ACCELERATION = 100f;
+        public const float RETARDATION = 250f;
 
         public int score;
 

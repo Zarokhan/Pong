@@ -63,37 +63,54 @@ namespace Pong.Gameworld
             VerticalCollision();
         }
 
-        private void VerticalCollision()
+        private void HorizontalCollision()
         {
-            // right collision
-            if (ball.Hitbox.Right > p2.Hitbox.Left)
+            // Left collision
+            if(ball.Position.X < 0)
             {
-                ball.Position = new Vector2(p2.Hitbox.Left - ball.Hitbox.Width * 0.5f, ball.Position.Y);
-
-                if (ball.Hitbox.Intersects(p2.Hitbox))
-                    ball.XVelocity = -(Math.Abs(ball.XVelocity) + Ball.VELOCITY_INCREASE);
-                else
+                if(p1.Hitbox.Right > ball.Hitbox.Left)
                 {
-                    p1.score++;
-                    ball.Reset();
+                    ball.XVelocity = -(Math.Abs(ball.XVelocity) + Ball.VELOCITY_INCREASE);
                 }
             }
-            // left collision
-            else if (ball.Hitbox.Left < p1.Hitbox.Right)
+            // Right collsision
+            if (ball.Position.X > 0)
             {
-                ball.Position = new Vector2(p1.Hitbox.Right + ball.Hitbox.Width * 0.5f, ball.Position.Y);
 
-                if (ball.Hitbox.Intersects(p1.Hitbox))
-                    ball.XVelocity = Math.Abs(ball.XVelocity) + Ball.VELOCITY_INCREASE;
-                else
-                {
-                    p2.score++;
-                    ball.Reset();
-                }
             }
         }
 
-        private void HorizontalCollision()
+        //private void VerticalCollision()
+        //{
+        //    // right collision
+        //    if (ball.Hitbox.Right > p2.Hitbox.Left)
+        //    {
+        //        ball.Position = new Vector2(p2.Hitbox.Left - ball.Hitbox.Width * 0.5f, ball.Position.Y);
+
+        //        if (ball.Hitbox.Intersects(p2.Hitbox))
+        //            ball.XVelocity = -(Math.Abs(ball.XVelocity) + Ball.VELOCITY_INCREASE);
+        //        else
+        //        {
+        //            p1.score++;
+        //            ball.Reset();
+        //        }
+        //    }
+        //    // left collision
+        //    else if (ball.Hitbox.Left < p1.Hitbox.Right)
+        //    {
+        //        ball.Position = new Vector2(p1.Hitbox.Right + ball.Hitbox.Width * 0.5f, ball.Position.Y);
+
+        //        if (ball.Hitbox.Intersects(p1.Hitbox))
+        //            ball.XVelocity = Math.Abs(ball.XVelocity) + Ball.VELOCITY_INCREASE;
+        //        else
+        //        {
+        //            p2.score++;
+        //            ball.Reset();
+        //        }
+        //    }
+        //}
+
+        private void VerticalCollision()
         {
             // Top collision
             if (ball.Hitbox.Top < top)

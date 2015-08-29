@@ -15,28 +15,25 @@ namespace Pong
 {
     class Game : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
+        private GraphicsDeviceManager graphics;
         public static ScreenManager screenMngr;
-
         public static Texture2D dot;
-
         public static Random rnd;
 
         public Game()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 720;
+            graphics.PreferredBackBufferWidth = (int)(1920 * 0.8f);
+            graphics.PreferredBackBufferHeight = (int)(1080 * 0.8f);
+            graphics.IsFullScreen = false;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
-            // statics
             rnd = new Random();
             dot = Content.Load<Texture2D>("Graphics/dot");
-
             screenMngr = new ScreenManager(this);
             screenMngr.SetScreen(new MainMenu(this));
             base.Initialize();
@@ -48,27 +45,21 @@ namespace Pong
 
         protected override void UnloadContent()
         {
-
         }
 
         protected override void Update(GameTime gameTime)
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
             Input.Update();
-
             screenMngr.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
-
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(new Color(50, 50, 50));
-
             screenMngr.Draw();
-
             base.Draw(gameTime);
         }
     }
