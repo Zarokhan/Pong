@@ -19,13 +19,15 @@ namespace Pong.Gameworld
 
         private Player p1, p2;
         private PlayerController c1, c2;
+        private PlayerAI playerAI, AI2;
         private Ball ball;
 
         private static bool failed_hit = false;
-
+        
         public World(BaseScreen parent, GameMode mode)
         {
             this.parent = parent;
+            // Static variables
             top = (int)(-parent.GetCamera().Viewport.Height * 0.5f);
             bottom = -top;
             left = (int)(-parent.GetCamera().Viewport.Width * 0.5f);
@@ -33,32 +35,38 @@ namespace Pong.Gameworld
 
             p1 = new Player(parent.LoadTexture("Player"));
             p2 = new Player(parent.LoadTexture("Player"));
+            ball = new Ball(parent.LoadTexture("Ball"));
+         
+            p1.Position = new Vector2(-parent.GetCamera().Viewport.Width * 0.45f, 0);
+            p2.Position = new Vector2(parent.GetCamera().Viewport.Width * 0.45f, 0);
 
-            c1 = new PlayerController(Keys.W, Keys.S);
             switch (mode)
             {
                 case GameMode.AI:
+                    c1 = new PlayerController(Keys.Up, Keys.Down);
+                    //AI2 = new PlayerAI();
+                    playerAI = new PlayerAI();
                     break;
                 case GameMode.Versus:
+                    c1 = new PlayerController(Keys.W, Keys.S);
                     c2 = new PlayerController(Keys.Up, Keys.Down);
                     break;
                 case GameMode.Online:
                     break;
             }
-
-
-            p1.Position = new Vector2(-parent.GetCamera().Viewport.Width * 0.45f, 0);
-            p2.Position = new Vector2(parent.GetCamera().Viewport.Width * 0.45f, 0);
-
-            ball = new Ball(parent.LoadTexture("Ball"));
         }
 
         public void Update(float delta)
         {
-            c1.Update(p1);
+            if(c1 != null)
+                c1.Update(p1);
+            if (c2 != null)
+                c2.Update(p2);
+            if (playerAI != null)
+                playerAI.Update(p2, ball);
+            if (AI2 != null)
+                AI2.Update(p1, ball);
             p1.Update(delta);
-
-            c2.Update(p2);
             p2.Update(delta);
 
             ball.Update(delta);

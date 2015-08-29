@@ -45,7 +45,7 @@ namespace Pong.Gameworld.Entities
             while (xVel < 100 && xVel > -100);
 
             do
-            { yVel = Game.rnd.Next(-100, 100); }
+            { yVel = Game.rnd.Next(-200, 200); }
             while (yVel < 50 && yVel > -50);
         }
     }
