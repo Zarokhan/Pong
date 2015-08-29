@@ -13,9 +13,5 @@ namespace Pong.Screens
         void Update(float delta);
         void Draw();
         void Dispose();
-
-        Texture2D LoadTexture(string filepath);
-        SpriteFont LoadFont(string filepath);
-        Camera GetCamera();
     }
 }

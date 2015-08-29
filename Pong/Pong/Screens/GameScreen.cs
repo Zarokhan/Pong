@@ -51,20 +51,5 @@ namespace Pong.Screens
         {
             return content;
         }
-
-        Texture2D IScreen.LoadTexture(string filepath)
-        {
-            return content.Load<Texture2D>("Graphics/" + filepath);
-        }
-
-        public Camera GetCamera()
-        {
-            return camera;
-        }
-
-        public SpriteFont LoadFont(string filepath)
-        {
-            return content.Load<SpriteFont>("Fonts/" + filepath);
-        }
     }
 }

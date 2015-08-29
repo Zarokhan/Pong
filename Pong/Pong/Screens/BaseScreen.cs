@@ -26,5 +26,20 @@ namespace Pong.Screens
             batch = new SpriteBatch(parent.GraphicsDevice);
             camera = new Camera(new Viewport(0, 0, parent.GraphicsDevice.Viewport.Width, parent.GraphicsDevice.Viewport.Height));
         }
+
+        public Camera GetCamera()
+        {
+            return camera;
+        }
+
+        public SpriteFont LoadFont(string filepath)
+        {
+            return content.Load<SpriteFont>("Fonts/" + filepath);
+        }
+
+        public Texture2D LoadTexture(string filepath)
+        {
+            return content.Load<Texture2D>("Graphics/" + filepath);
+        }
     }
 }

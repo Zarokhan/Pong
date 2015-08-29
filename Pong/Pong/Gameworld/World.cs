@@ -13,7 +13,7 @@ namespace Pong.Gameworld
     class World
     {
 
-        private IScreen parent;
+        private BaseScreen parent;
         // Screen Bounds
         public static int top, bottom, left, right;
 
@@ -23,7 +23,7 @@ namespace Pong.Gameworld
 
         private static bool failed_hit = false;
 
-        public World(IScreen parent, GameMode mode)
+        public World(BaseScreen parent, GameMode mode)
         {
             this.parent = parent;
             top = (int)(-parent.GetCamera().Viewport.Height * 0.5f);
