@@ -61,5 +61,12 @@ namespace Pong.Gameworld.Entities
             else if (yVel < 0)
                 yVel += RETARDATION;
         }
+
+        public override void Reset()
+        {
+            position = new Vector2(position.X, 0);
+            xVel = 0;
+            yVel = 0;
+        }
     }
 }

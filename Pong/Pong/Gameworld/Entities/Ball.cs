@@ -35,10 +35,9 @@ namespace Pong.Gameworld.Entities
             }
         }
 
-        public void Reset()
+        public override void Reset()
         {
-            resetTimer = 2.0f;
-
+            resetTimer = 0.5f;
             position = new Vector2(0, 0);
 
             do
@@ -46,20 +45,8 @@ namespace Pong.Gameworld.Entities
             while (xVel < 100 && xVel > -100);
 
             do
-            { yVel = Game.rnd.Next(-200, 200); }
-            while (yVel < 100 && yVel > -100);
-        }
-
-        public float XVelocity
-        {
-            get { return xVel; }
-            set { xVel = value; }
-        }
-
-        public float YVelocity
-        {
-            get { return yVel; }
-            set { yVel = value; }
+            { yVel = Game.rnd.Next(-100, 100); }
+            while (yVel < 50 && yVel > -50);
         }
     }
 }

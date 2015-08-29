@@ -44,6 +44,8 @@ namespace Pong.Gameworld.Entities
             batch.Draw(texture, position, srcRec, Color.White, rotation, origin, scale, SpriteEffects.None, 0);
         }
 
+        public abstract void Reset();
+
         public Rectangle Hitbox
         {
             get { return hitbox; }
@@ -53,6 +55,23 @@ namespace Pong.Gameworld.Entities
         {
             get { return position; }
             set { position = value; }
+        }
+
+        public Vector2 Origin
+        {
+            get { return origin; }
+        }
+
+        public float XVelocity
+        {
+            get { return xVel; }
+            set { xVel = value; }
+        }
+
+        public float YVelocity
+        {
+            get { return yVel; }
+            set { yVel = value; }
         }
     }
 }

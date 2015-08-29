@@ -12,12 +12,16 @@ namespace Pong.Gameworld
 {
     class World
     {
+
         private IScreen parent;
+        // Screen Bounds
         public static int top, bottom, left, right;
 
-        Player p1, p2;
-        PlayerController c1, c2;
-        Ball ball;
+        private Player p1, p2;
+        private PlayerController c1, c2;
+        private Ball ball;
+
+        private static bool failed_hit = false;
 
         public World(IScreen parent, GameMode mode)
         {
@@ -68,47 +72,57 @@ namespace Pong.Gameworld
             // Left collision
             if(ball.Position.X < 0)
             {
-                if(p1.Hitbox.Right > ball.Hitbox.Left)
+                if (failed_hit)
                 {
-                    ball.XVelocity = -(Math.Abs(ball.XVelocity) + Ball.VELOCITY_INCREASE);
+                    Game.BackgroundColor = new Color(100, 100, 100);
+                }
+                else if(p1.Hitbox.Right > ball.Hitbox.Left)
+                {
+                    // Successful hit
+                    if(ball.Position.Y > p1.Position.Y - p1.Origin.Y - ball.Origin.Y + 1 && ball.Position.Y < p1.Position.Y + p1.Origin.Y + ball.Origin.Y - 1)
+                    {
+                        // Return path
+                        ball.Position = new Vector2(p1.Hitbox.Right + ball.Hitbox.Width * 0.5f, ball.Position.Y);
+                        ball.XVelocity = (Math.Abs(ball.XVelocity) + Ball.VELOCITY_INCREASE);
+                    } else
+                    {
+                        failed_hit = true;
+                    }
                 }
             }
             // Right collsision
             if (ball.Position.X > 0)
             {
+                if (failed_hit)
+                {
+                    Game.BackgroundColor = new Color(100, 100, 100);
+                }
+                else if(p2.Hitbox.Left < ball.Hitbox.Right)
+                {
+                    // Successful hit
+                    if (ball.Position.Y > p2.Position.Y - p2.Origin.Y - ball.Origin.Y + 1 && ball.Position.Y < p2.Position.Y + p2.Origin.Y + ball.Origin.Y - 1)
+                    {
+                        // Return path
+                        ball.Position = new Vector2(p2.Hitbox.Left - ball.Hitbox.Width * 0.5f, ball.Position.Y);
+                        ball.XVelocity = -(Math.Abs(ball.XVelocity) + Ball.VELOCITY_INCREASE);
+                    } else
+                    {
+                        failed_hit = true;
+                    }
+                }
+            }
 
+            // Reset
+            if(ball.Hitbox.Right < left)
+            {
+                p2.score++;
+                ResetWorld();
+            } else if(ball.Hitbox.Left > right)
+            {
+                p1.score++;
+                ResetWorld();
             }
         }
-
-        //private void VerticalCollision()
-        //{
-        //    // right collision
-        //    if (ball.Hitbox.Right > p2.Hitbox.Left)
-        //    {
-        //        ball.Position = new Vector2(p2.Hitbox.Left - ball.Hitbox.Width * 0.5f, ball.Position.Y);
-
-        //        if (ball.Hitbox.Intersects(p2.Hitbox))
-        //            ball.XVelocity = -(Math.Abs(ball.XVelocity) + Ball.VELOCITY_INCREASE);
-        //        else
-        //        {
-        //            p1.score++;
-        //            ball.Reset();
-        //        }
-        //    }
-        //    // left collision
-        //    else if (ball.Hitbox.Left < p1.Hitbox.Right)
-        //    {
-        //        ball.Position = new Vector2(p1.Hitbox.Right + ball.Hitbox.Width * 0.5f, ball.Position.Y);
-
-        //        if (ball.Hitbox.Intersects(p1.Hitbox))
-        //            ball.XVelocity = Math.Abs(ball.XVelocity) + Ball.VELOCITY_INCREASE;
-        //        else
-        //        {
-        //            p2.score++;
-        //            ball.Reset();
-        //        }
-        //    }
-        //}
 
         private void VerticalCollision()
         {
@@ -124,6 +138,15 @@ namespace Pong.Gameworld
                 ball.Position = new Vector2(ball.Position.X, bottom - ball.Hitbox.Height * 0.5f);
                 ball.YVelocity = -ball.YVelocity;
             }
+        }
+
+        private void ResetWorld()
+        {
+            ball.Reset();
+            failed_hit = false;
+            p1.Reset();
+            p2.Reset();
+            Game.BackgroundColor = new Color(50, 50, 50);
         }
 
         public void Draw(SpriteBatch batch)

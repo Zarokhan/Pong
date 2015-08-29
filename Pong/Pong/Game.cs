@@ -19,6 +19,7 @@ namespace Pong
         public static ScreenManager screenMngr;
         public static Texture2D dot;
         public static Random rnd;
+        public static Color BackgroundColor = new Color(50, 50, 50);
 
         public Game()
         {
@@ -58,7 +59,7 @@ namespace Pong
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(new Color(50, 50, 50));
+            GraphicsDevice.Clear(BackgroundColor);
             screenMngr.Draw();
             base.Draw(gameTime);
         }

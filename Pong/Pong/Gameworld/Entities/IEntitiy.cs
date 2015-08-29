@@ -12,5 +12,6 @@ namespace Pong.Gameworld.Entities
     {
         void Update(float delta);
         void Draw(SpriteBatch batch);
+        void Reset();
     }
 }
