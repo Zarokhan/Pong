@@ -107,8 +107,12 @@ namespace Pong.Utilities
 
         }
 
+        public Viewport Viewport
+        {
+            get { return _viewport; }
+        }
 
-        public void Update()
+        public void Update(float delta)
         {
 
             //Call Camera Input

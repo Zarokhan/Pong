@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Pong.World
+namespace Pong.Utilities
 {
-    class World
+    class AssetManager
     {
+
+
+        public AssetManager()
+        {
+
+        }
     }
 }

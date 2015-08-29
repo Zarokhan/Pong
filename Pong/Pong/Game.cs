@@ -20,24 +20,30 @@ namespace Pong
 
         public static Texture2D dot;
 
+        public static Random rnd;
+
         public Game()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 720;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
+            // statics
+            rnd = new Random();
+            dot = Content.Load<Texture2D>("Graphics/dot");
+
             screenMngr = new ScreenManager(this);
             screenMngr.SetScreen(new GameScreen(this));
-
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            dot = Content.Load<Texture2D>("dot");
         }
 
         protected override void UnloadContent()
@@ -57,7 +63,7 @@ namespace Pong
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(new Color(50, 50, 50));
 
             screenMngr.Draw();
 

@@ -1,4 +1,7 @@
-Content\dot.xnb
-Content\Player.xnb
-Content\dot.png
-Content\Player.png
+Content\Graphics\dot.xnb
+Content\Graphics\Player.xnb
+Content\Graphics\Ball.xnb
+Content\Fonts\scorefont.xnb
+Content\Fonts\atari full.ttf
+Content\Graphics\dot.png
+Content\Graphics\Player.png

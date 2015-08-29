@@ -2,22 +2,40 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>dot.png</Source>
-      <Name>dot</Name>
+      <Source>Graphics\dot.png</Source>
+      <Name>Graphics\dot</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Zarokhan\Desktop\Pong-master\Pong\Pong\bin\x86\Debug\Content\dot.xnb</Output>
+      <Output>C:\Users\Zarokhan\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\dot.xnb</Output>
       <Time>2015-08-18T23:13:48.3270177+02:00</Time>
     </Item>
     <Item>
-      <Source>Player.png</Source>
-      <Name>Player</Name>
+      <Source>Graphics\Player.png</Source>
+      <Name>Graphics\Player</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Zarokhan\Desktop\Pong-master\Pong\Pong\bin\x86\Debug\Content\Player.xnb</Output>
-      <Time>2015-08-28T00:10:27.200779+02:00</Time>
+      <Output>C:\Users\Zarokhan\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Player.xnb</Output>
+      <Time>2015-08-29T14:20:30.7251129+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Graphics\Ball.png</Source>
+      <Name>Graphics\Ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zarokhan\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Ball.xnb</Output>
+      <Time>2015-08-29T15:53:16.9425629+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\scorefont.spritefont</Source>
+      <Name>Fonts\scorefont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Zarokhan\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Fonts\scorefont.xnb</Output>
+      <Time>2015-08-29T15:23:19.5253038+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -26,10 +44,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Zarokhan\Desktop\Pong-master\Pong\PongContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Zarokhan\Desktop\Pong-master\Pong\Pong\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Zarokhan\Desktop\Pong-master\Pong\Pong\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Zarokhan\Desktop\Pong-master\Pong\Pong\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Zarokhan\Desktop\Pong\Pong\PongContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Zarokhan\Desktop\Pong\Pong\Pong\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Zarokhan\Desktop\Pong\Pong\Pong\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Zarokhan\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

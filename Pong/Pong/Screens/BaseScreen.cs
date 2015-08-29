@@ -15,16 +15,12 @@ namespace Pong.Screens
         protected Camera camera;
         protected ContentManager content;
 
-        protected Texture2D LoadTexture(string Texturepath)
-        {
-            return content.Load<Texture2D>(Texturepath);
-        }
-
         public BaseScreen(Game parent)
         {
             this.parent = parent;
 
             content = new ContentManager(parent.Content.ServiceProvider, "Content");
+
             batch = new SpriteBatch(parent.GraphicsDevice);
             camera = new Camera(new Viewport(0, 0, parent.GraphicsDevice.Viewport.Width, parent.GraphicsDevice.Viewport.Height));
         }
