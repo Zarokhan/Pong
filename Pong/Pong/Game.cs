@@ -19,7 +19,7 @@ namespace Pong
         public static ScreenManager screenMngr;
         public static Texture2D dot;
         public static Random rnd;
-        public static Color BackgroundColor = new Color(50, 50, 50);
+        public static Color BackgroundColor = Color.Black;
 
         public Game()
         {

@@ -47,3 +47,10 @@ C:\Users\Zarokhan\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Player.p
 C:\Users\Zarokhan\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Ball.xnb
 C:\Users\Zarokhan\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Fonts\scorefont.xnb
 C:\Users\Zarokhan\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Fonts\atari full.ttf
+C:\Users\Simon\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\dot.xnb
+C:\Users\Simon\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Player.xnb
+C:\Users\Simon\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Ball.xnb
+C:\Users\Simon\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Fonts\scorefont.xnb
+C:\Users\Simon\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Fonts\atari full.ttf
+C:\Users\Simon\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\dot.png
+C:\Users\Simon\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Player.png

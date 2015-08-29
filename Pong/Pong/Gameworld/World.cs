@@ -74,7 +74,7 @@ namespace Pong.Gameworld
             {
                 if (failed_hit)
                 {
-                    Game.BackgroundColor = new Color(100, 100, 100);
+                    Game.BackgroundColor = Color.Black;
                 }
                 else if(p1.Hitbox.Right > ball.Hitbox.Left)
                 {
@@ -95,7 +95,7 @@ namespace Pong.Gameworld
             {
                 if (failed_hit)
                 {
-                    Game.BackgroundColor = new Color(100, 100, 100);
+                    Game.BackgroundColor = Color.Black;
                 }
                 else if(p2.Hitbox.Left < ball.Hitbox.Right)
                 {
@@ -146,7 +146,7 @@ namespace Pong.Gameworld
             failed_hit = false;
             p1.Reset();
             p2.Reset();
-            Game.BackgroundColor = new Color(50, 50, 50);
+            Game.BackgroundColor = Color.Black;
         }
 
         public void Draw(SpriteBatch batch)
