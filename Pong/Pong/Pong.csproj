@@ -73,6 +73,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Gameworld\Entities\Ball.cs" />
+    <Compile Include="Gameworld\GameMode.cs" />
+    <Compile Include="Screens\MainMenu.cs" />
     <Compile Include="Utilities\AssetManager.cs" />
     <Compile Include="Gameworld\Entities\Entity.cs" />
     <Compile Include="Gameworld\Entities\IEntitiy.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Utilities\Camera.cs" />
     <Compile Include="Gameworld\Entities\PlayerController.cs" />
     <Compile Include="Gameworld\World.cs" />
+    <Compile Include="Utilities\Input.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

@@ -15,10 +15,10 @@ namespace Pong.Screens
     {
         World world;
 
-        public GameScreen(Game parent) 
+        public GameScreen(Game parent, GameMode mode) 
             : base(parent)
         {
-            world = new World(this);
+            world = new World(this, mode);
         }
 
         public void Update(float delta)

@@ -38,7 +38,7 @@ namespace Pong
             dot = Content.Load<Texture2D>("Graphics/dot");
 
             screenMngr = new ScreenManager(this);
-            screenMngr.SetScreen(new GameScreen(this));
+            screenMngr.SetScreen(new MainMenu(this));
             base.Initialize();
         }
 
@@ -55,6 +55,8 @@ namespace Pong
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+
+            Input.Update();
 
             screenMngr.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
 

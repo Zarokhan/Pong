@@ -19,7 +19,7 @@ namespace Pong.Gameworld
         PlayerController c1, c2;
         Ball ball;
 
-        public World(IScreen parent)
+        public World(IScreen parent, GameMode mode)
         {
             this.parent = parent;
             top = (int)(-parent.GetCamera().Viewport.Height * 0.5f);
@@ -29,8 +29,19 @@ namespace Pong.Gameworld
 
             p1 = new Player(parent.LoadTexture("Player"));
             p2 = new Player(parent.LoadTexture("Player"));
+
             c1 = new PlayerController(Keys.W, Keys.S);
-            c2 = new PlayerController(Keys.Up, Keys.Down);
+            switch (mode)
+            {
+                case GameMode.AI:
+                    break;
+                case GameMode.Versus:
+                    c2 = new PlayerController(Keys.Up, Keys.Down);
+                    break;
+                case GameMode.Online:
+                    break;
+            }
+
 
             p1.Position = new Vector2(-parent.GetCamera().Viewport.Width * 0.45f, 0);
             p2.Position = new Vector2(parent.GetCamera().Viewport.Width * 0.45f, 0);

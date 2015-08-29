@@ -11,21 +11,34 @@ namespace Pong.Gameworld.Entities
     {
         public const int VELOCITY_INCREASE = 50;
 
+        private float resetTimer;
+
         public Ball(Texture2D texture)
             : base(texture, texture.Width, texture.Height)
         {
+            resetTimer = 0;
             Reset();
         }
 
         public override void Update(float delta)
         {
             base.Update(delta);
-            position.Y += yVel * delta;
-            position.X += xVel * delta;
+
+            if (resetTimer > 0)
+            {
+                resetTimer -= delta;
+            }
+            else
+            {
+                position.Y += yVel * delta;
+                position.X += xVel * delta;
+            }
         }
 
         public void Reset()
         {
+            resetTimer = 2.0f;
+
             position = new Vector2(0, 0);
 
             do
