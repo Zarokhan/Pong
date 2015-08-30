@@ -58,7 +58,7 @@ namespace Pong.Screens
         public virtual void Draw(SpriteBatch batch)
         {
             Color color = isSelected ? Color.Yellow : Color.White;
-            Vector2 origin = new Vector2(GetHeight() / 2, Getwidth() / 2);
+            Vector2 origin = font.MeasureString(text) / 2;
             float scale = 1;
             float rotation = 0;
             batch.DrawString(font, text, position, color, rotation, origin, scale, SpriteEffects.None, 0);

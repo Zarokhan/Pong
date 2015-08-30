@@ -13,12 +13,6 @@ namespace Pong.Screens
     {
         //private const float ANIMATION_SPEED = 100;
 
-        float offset = 2f;
-        protected TimeSpan TransitionOnTime;
-        protected TimeSpan TransitionOffTime;
-        protected bool SideMenu;
-        protected float TransitionAlpha;
-        protected float TransitionPosition;
         protected int selectedEntry = 0;
         private string menuTitle;
         protected SpriteFont font;
@@ -29,23 +23,11 @@ namespace Pong.Screens
             get { return menuEntries; }
         }
 
-        private float SidebarOffset
-        {
-            get
-            {
-                menuEntries.OrderByDescending(m => m.Getwidth());
-                return menuEntries[0].Getwidth();
-            }
-        }
-
         // Main constructor
         public MenuScreen(Game parent, string menuTitle)
             : base(parent)
         {
             this.menuTitle = menuTitle;
-
-            TransitionOnTime = TimeSpan.FromSeconds(0.5);
-            TransitionOffTime = TimeSpan.FromSeconds(0.5);
             font = LoadFont("scorefont");
         }
 
@@ -132,18 +114,20 @@ namespace Pong.Screens
 
             for (int index = 0; index < menuEntries.Count; index++)
             {
-                bool isSelected = index == selectedEntry;
-
                 menuEntries[index].Update(delta);
+                menuEntries[index].Position = new Vector2(-camera.Viewport.Width * 0.3f + menuEntries[index].Getwidth(),
+                                                          (-camera.Viewport.Height * 0.0f + menuEntries[index].GetHeight()) 
+                                                                                 + menuEntries[index].GetHeight() * index);
             }
         }
 
         public virtual void Draw()
         {
             AnimateMenuEntry();
-
+            
             batch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, camera.Transform);
 
+            // Update backwards so we can have it in the corner
             for (int index = 0; index < menuEntries.Count; index++)
             {
                 MenuEntry menuEntry = menuEntries[index];
@@ -152,7 +136,8 @@ namespace Pong.Screens
                 menuEntry.Draw(batch);
             }
 
-            Vector2 titlePosition = new Vector2(0, -300);
+            Vector2 titlePosition = new Vector2(font.MeasureString(menuTitle).X / 2, 
+                                                 -camera.Viewport.Height * 0.25f - font.MeasureString(menuTitle).Y) / 2;
             Color titleColor = Color.White;
             Vector2 titleOrigin = font.MeasureString(menuTitle) / 2;
             float titleScale = 1f;

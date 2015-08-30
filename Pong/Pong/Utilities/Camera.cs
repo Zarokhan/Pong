@@ -16,14 +16,10 @@ namespace Pong.Utilities
         private Vector2 _pos; //Camera Position
         private float _rotation; //Camera Rotation Value (Radians)
         private Viewport _viewport; //Cameras Viewport
-        private MouseState _mState; //Mouse state
-        private KeyboardState _keyState; //Keyboard state
-        private Int32 _scroll; //Previous Mouse Scroll Wheel Value
 
         public Camera(Viewport viewport)
         {
             _zoom = 1.0f;
-            _scroll = 1;
             _rotation = 0.0f;
             _pos = new Vector2(0, 0);
             _viewport = viewport;

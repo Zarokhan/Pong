@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Pong.Utilities;
+using Pong.Screens.MenuSystem.Menus;
 
 namespace Pong.Screens
 {
@@ -28,6 +29,9 @@ namespace Pong.Screens
         {
             camera.Update(delta);
             world.Update(delta);
+
+            if (Input.Clicked(Keys.Escape))
+                Game.screenMngr.SetScreen(new MainMenuScreen(parent, "Pong"));
         }
 
         // Render loop
@@ -43,13 +47,6 @@ namespace Pong.Screens
         {
             content.Dispose();
             batch.Dispose();
-        }
-
-        // Getters
-
-        public ContentManager GetContent()
-        {
-            return content;
         }
     }
 }
