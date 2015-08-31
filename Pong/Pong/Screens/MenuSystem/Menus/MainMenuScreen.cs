@@ -20,15 +20,15 @@ namespace Pong.Screens.MenuSystem.Menus
             multiplayer = new MenuEntry("Online", font);
             exit = new MenuEntry("Exit", font);
 
-            ai.Selected += AI;
-            versus.Selected += Versus;
-            multiplayer.Selected += Multiplayer;
-            exit.Selected += Exit;
+            ai.ClickedEvent += AI;
+            versus.ClickedEvent += Versus;
+            multiplayer.ClickedEvent += Multiplayer;
+            exit.ClickedEvent += Exit;
 
-            MenuEntries.Add(ai);
-            MenuEntries.Add(versus);
-            MenuEntries.Add(multiplayer);
-            MenuEntries.Add(exit);
+            menuEntries.Add(ai);
+            menuEntries.Add(versus);
+            menuEntries.Add(multiplayer);
+            menuEntries.Add(exit);
         }
 
         private void AI(object sender, EventArgs e)

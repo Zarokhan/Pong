@@ -51,8 +51,8 @@ namespace Pong
 
         protected override void Update(GameTime gameTime)
         {
-            //if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-            //    Exit();
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
             Input.Update();
             screenMngr.Update((float)gameTime.ElapsedGameTime.TotalSeconds);
             base.Update(gameTime);

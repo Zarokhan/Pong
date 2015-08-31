@@ -9,30 +9,13 @@ namespace Pong.Screens
 {
     class MenuEntry
     {
-        private string text;
         private Vector2 position;
         private SpriteFont font;
+
+        protected string text;
+
+        public event EventHandler<EventArgs> ClickedEvent;
         public bool isSelected;
-
-        public string Text
-        {
-            get { return text; }
-            set { text = value; }
-        }
-
-        public Vector2 Position
-        {
-            get { return position; }
-            set { position = value; }
-        }
-
-        public event EventHandler<EventArgs> Selected;
-
-        protected internal virtual void Action()
-        {
-            if (Selected != null)
-                Selected(this, new EventArgs());
-        }
 
         public MenuEntry(string text, SpriteFont font)
         {
@@ -40,14 +23,10 @@ namespace Pong.Screens
             this.font = font;
         }
 
-        public virtual int Getwidth()
+        protected internal virtual void Action()
         {
-            return (int)font.MeasureString(text).X;
-        }
-
-        public virtual int GetHeight()
-        {
-            return (int)font.MeasureString(text).Y;
+            if (ClickedEvent != null)
+                ClickedEvent(this, new EventArgs());
         }
 
         public virtual void Update(float delta)
@@ -62,6 +41,21 @@ namespace Pong.Screens
             float scale = 1;
             float rotation = 0;
             batch.DrawString(font, text, position, color, rotation, origin, scale, SpriteEffects.None, 0);
+        }
+        public int Getwidth()
+        {
+            return (int)font.MeasureString(text).X;
+        }
+
+        public int GetHeight()
+        {
+            return (int)font.MeasureString(text).Y;
+        }
+
+        public Vector2 Position
+        {
+            get { return position; }
+            set { position = value; }
         }
     }
 }

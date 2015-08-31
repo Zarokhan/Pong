@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Simon\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\dot.xnb</Output>
-      <Time>2015-08-29T21:47:31.6058585+02:00</Time>
+      <Time>2015-08-30T15:25:06.5476324+02:00</Time>
     </Item>
     <Item>
       <Source>Graphics\Player.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Simon\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Player.xnb</Output>
-      <Time>2015-08-29T21:47:31.6053581+02:00</Time>
+      <Time>2015-08-30T15:25:06.5471323+02:00</Time>
     </Item>
     <Item>
       <Source>Graphics\Ball.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Simon\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Ball.xnb</Output>
-      <Time>2015-08-29T21:47:31.604858+02:00</Time>
+      <Time>2015-08-30T15:25:06.5456343+02:00</Time>
     </Item>
     <Item>
       <Source>Fonts\scorefont.spritefont</Source>
@@ -35,7 +35,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Simon\Desktop\Pong\Pong\Pong\bin\x86\Debug\Content\Fonts\scorefont.xnb</Output>
-      <Time>2015-08-30T03:37:02.4094044+02:00</Time>
+      <Time>2015-08-30T15:25:06.544132+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -76,7 +76,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-08-18T21:03:46.7716078+02:00</Value>
+        <Value>2015-08-14T21:06:03.4617187+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

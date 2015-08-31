@@ -29,9 +29,6 @@ namespace Pong.Screens
         {
             camera.Update(delta);
             world.Update(delta);
-
-            if (Input.Clicked(Keys.Escape))
-                Game.screenMngr.SetScreen(new MainMenuScreen(parent, "Pong"));
         }
 
         // Render loop
