@@ -26,6 +26,7 @@ namespace Pong.Gameworld.Entities
             this.width = width;
             this.height = height;
             position = new Vector2(0, 0);
+            rotation = 0;
             color = Color.White;
             srcRec = new Rectangle(0, 0, texture.Width, texture.Height);
             origin = new Vector2(width * 0.5f, height * 0.5f);

@@ -76,7 +76,6 @@
     <Compile Include="Gameworld\Entities\PlayerAI.cs" />
     <Compile Include="Screens\MenuSystem\Menus\MainMenuScreen.cs" />
     <Compile Include="Utilities\GameMode.cs" />
-    <Compile Include="Screens\MenuSystem\Menus\MainMenu.cs" />
     <Compile Include="Gameworld\Entities\Entity.cs" />
     <Compile Include="Gameworld\Entities\IEntitiy.cs" />
     <Compile Include="Gameworld\Entities\Player.cs" />

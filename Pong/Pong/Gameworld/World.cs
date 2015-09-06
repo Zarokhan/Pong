@@ -43,8 +43,8 @@ namespace Pong.Gameworld
             switch (mode)
             {
                 case GameMode.AI:
-                    //c1 = new PlayerController(Keys.Up, Keys.Down);
-                    AI2 = new PlayerAI();
+                    c1 = new PlayerController(Keys.Up, Keys.Down);
+                    //AI2 = new PlayerAI();
                     playerAI = new PlayerAI();
                     break;
                 case GameMode.Versus:

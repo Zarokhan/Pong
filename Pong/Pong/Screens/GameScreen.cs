@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Pong.Utilities;
+using Pong.Screens.MenuSystem.Menus;
 
 namespace Pong.Screens
 {
@@ -43,13 +44,6 @@ namespace Pong.Screens
         {
             content.Dispose();
             batch.Dispose();
-        }
-
-        // Getters
-
-        public ContentManager GetContent()
-        {
-            return content;
         }
     }
 }
