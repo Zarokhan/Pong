@@ -43,8 +43,8 @@ namespace Pong.Gameworld
             switch (mode)
             {
                 case GameMode.AI:
-                    c1 = new PlayerController(Keys.Up, Keys.Down);
-                    //AI2 = new PlayerAI();
+                    //c1 = new PlayerController(Keys.Up, Keys.Down);
+                    AI2 = new PlayerAI();
                     playerAI = new PlayerAI();
                     break;
                 case GameMode.Versus:
@@ -71,11 +71,11 @@ namespace Pong.Gameworld
 
             ball.Update(delta);
 
-            HorizontalCollision();
+            HorizontalCollision(delta);
             VerticalCollision();
         }
 
-        private void HorizontalCollision()
+        private void HorizontalCollision(float delta)
         {
             // Left collision
             if(ball.Position.X < 0)
@@ -84,7 +84,7 @@ namespace Pong.Gameworld
                 {
                     Game.BackgroundColor = Color.Black;
                 }
-                else if(p1.Hitbox.Right > ball.Hitbox.Left)
+                else if(p1.Hitbox.Right > ball.Hitbox.Left + ball.XVelocity * delta)
                 {
                     // Successful hit
                     if(ball.Position.Y > p1.Position.Y - p1.Origin.Y - ball.Origin.Y + 1 && ball.Position.Y < p1.Position.Y + p1.Origin.Y + ball.Origin.Y - 1)
@@ -105,7 +105,7 @@ namespace Pong.Gameworld
                 {
                     Game.BackgroundColor = Color.Black;
                 }
-                else if(p2.Hitbox.Left < ball.Hitbox.Right)
+                else if(p2.Hitbox.Left < ball.Hitbox.Right + ball.XVelocity * delta)
                 {
                     // Successful hit
                     if (ball.Position.Y > p2.Position.Y - p2.Origin.Y - ball.Origin.Y + 1 && ball.Position.Y < p2.Position.Y + p2.Origin.Y + ball.Origin.Y - 1)
