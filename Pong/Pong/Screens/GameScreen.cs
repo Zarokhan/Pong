@@ -9,11 +9,13 @@ using System.Linq;
 using System.Text;
 using Pong.Utilities;
 using Pong.Screens.MenuSystem.Menus;
+using Lidgren.Network;
 
 namespace Pong.Screens
 {
     class GameScreen : BaseScreen, IScreen
     {
+
         // Global variables
         private World world;
 

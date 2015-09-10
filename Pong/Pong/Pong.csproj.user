@@ -11,4 +11,7 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
     <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
+  <PropertyGroup>
+    <ReferencePath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.Xna.Framework.Net\</ReferencePath>
+  </PropertyGroup>
 </Project>

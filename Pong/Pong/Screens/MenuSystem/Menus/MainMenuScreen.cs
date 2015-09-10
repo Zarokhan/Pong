@@ -43,7 +43,7 @@ namespace Pong.Screens.MenuSystem.Menus
 
         private void Multiplayer(object sender, EventArgs e)
         {
-            
+            Game.screenMngr.SetScreen(new GameScreen(parent, GameMode.Online));
         }
 
         private void Exit(object sender, EventArgs e)

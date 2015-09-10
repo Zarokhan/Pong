@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Lidgren.Network;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Pong.Gameworld.Entities;
@@ -12,10 +13,19 @@ namespace Pong.Gameworld
 {
     class World
     {
-
         private BaseScreen parent;
+        // Networking
+        NetPeerConfiguration config;
+        NetConnection con;
+        NetClient client;
+        NetIncomingMessage iMessage;
+        NetOutgoingMessage oMessage;
+
+        int pos = 0;
+
         // Screen Bounds
         public static int top, bottom, left, right;
+        private GameMode mode;
 
         private Player p1, p2;
         private PlayerController c1, c2;
@@ -27,6 +37,7 @@ namespace Pong.Gameworld
         public World(BaseScreen parent, GameMode mode)
         {
             this.parent = parent;
+            this.mode = mode;
             // Static variables
             top = (int)(-parent.GetCamera().Viewport.Height * 0.5f);
             bottom = -top;
@@ -52,12 +63,72 @@ namespace Pong.Gameworld
                     c2 = new PlayerController(Keys.Up, Keys.Down);
                     break;
                 case GameMode.Online:
+                    c1 = new PlayerController(Keys.Up, Keys.Down);
+                    //Networking
+                    config = new NetPeerConfiguration("RSPONG");
+                    client = new NetClient(config);
+                    client.Start();
+                    con = client.Connect("192.168.1.2", 14243);
                     break;
             }
         }
 
         public void Update(float delta)
         {
+            if(mode == GameMode.Online)
+            {
+                // Outgoing
+                oMessage = client.CreateMessage();
+                oMessage.WriteVariableInt32((int)(p1.Position.Y));
+
+                client.SendMessage(oMessage, con, NetDeliveryMethod.UnreliableSequenced);
+
+                // Incoming
+                if ((iMessage = client.ReadMessage()) != null)
+                {
+                    switch (iMessage.MessageType)
+                    {
+                        case NetIncomingMessageType.Error:
+                            break;
+                        case NetIncomingMessageType.StatusChanged:
+                            break;
+                        case NetIncomingMessageType.UnconnectedData:
+                            break;
+                        case NetIncomingMessageType.ConnectionApproval:
+                            break;
+                        case NetIncomingMessageType.Data:
+                            // handle custom messages
+                            int data = iMessage.ReadVariableInt32();
+                            p2.Position = new Vector2(p2.Position.X, data);
+                            Console.WriteLine("data: " + data);
+                            break;
+                        case NetIncomingMessageType.Receipt:
+                            break;
+                        case NetIncomingMessageType.DiscoveryRequest:
+                            break;
+                        case NetIncomingMessageType.DiscoveryResponse:
+                            break;
+                        case NetIncomingMessageType.VerboseDebugMessage:
+                            break;
+                        case NetIncomingMessageType.DebugMessage:
+                            break;
+                        case NetIncomingMessageType.WarningMessage:
+                            break;
+                        case NetIncomingMessageType.ErrorMessage:
+                            break;
+                        case NetIncomingMessageType.NatIntroductionSuccess:
+                            break;
+                        case NetIncomingMessageType.ConnectionLatencyUpdated:
+                            break;
+                        default:
+                            Console.WriteLine("unhandled message with type: " + iMessage.MessageType);
+                            break;
+                    }
+                    client.Recycle(iMessage);
+                    iMessage = null;
+                }
+            }
+
             if(c1 != null)
                 c1.Update(p1);
             if (c2 != null)
