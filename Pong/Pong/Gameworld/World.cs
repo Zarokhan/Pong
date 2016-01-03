@@ -62,12 +62,14 @@ namespace Pong.Gameworld
                     c1 = new PlayerController(Keys.W, Keys.S);
                     c2 = new PlayerController(Keys.Up, Keys.Down);
                     break;
-                case GameMode.Online:
-                    c1 = new PlayerController(Keys.Up, Keys.Down);
+                case GameMode.Host:
                     running = true;
                     listener = new TcpListener(IPAddress.Any, 50000);
                     connThread = new Thread(new ThreadStart(ConnectionListener));
                     connThread.Start();
+                    break;
+                case GameMode.Client:
+
                     break;
             }
         }
@@ -107,11 +109,6 @@ namespace Pong.Gameworld
 
         public void Update(float delta)
         {
-            if(mode == GameMode.Online)
-            {
-
-            }
-
             if(c1 != null)
                 c1.Update(p1);
             if (c2 != null)

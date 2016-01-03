@@ -77,3 +77,26 @@ E:\git\Pong\Pong\Pong\obj\x86\Debug\Pong.csprojResolveAssemblyReference.cache
 E:\git\Pong\Pong\Pong\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 E:\git\Pong\Pong\Pong\obj\x86\Debug\Pong.exe
 E:\git\Pong\Pong\Pong\obj\x86\Debug\Pong.pdb
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\dot.xnb
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Player.xnb
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Ball.xnb
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Content\Fonts\scorefont.xnb
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Content\Fonts\atari full.ttf
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\dot.png
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Player.png
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Pong.exe
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Pong.pdb
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Microsoft.Xna.Framework.dll
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Microsoft.Xna.Framework.xml
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+D:\Git\Pong\Pong\Pong\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+D:\Git\Pong\Pong\Pong\obj\x86\Debug\Pong.csprojResolveAssemblyReference.cache
+D:\Git\Pong\Pong\Pong\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Git\Pong\Pong\Pong\obj\x86\Debug\Pong.exe
+D:\Git\Pong\Pong\Pong\obj\x86\Debug\Pong.pdb

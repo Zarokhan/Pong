@@ -9,6 +9,7 @@ namespace Pong.Gameworld
     {
         AI,
         Versus,
-        Online,
+        Host,
+        Client,
     }
 }

@@ -10,24 +10,27 @@ namespace Pong.Screens.MenuSystem.Menus
 {
     class MainMenuScreen : MenuScreen
     {
-        MenuEntry ai, versus, multiplayer, exit;
+        MenuEntry ai, versus, create, join, exit;
 
         public MainMenuScreen(Game parent, string title)
             : base (parent, title)
         {
             ai = new MenuEntry("vs AI", font);
             versus = new MenuEntry("Versus", font);
-            multiplayer = new MenuEntry("Online", font);
+            create = new MenuEntry("Create Server", font);
+            join = new MenuEntry("Join Server", font);
             exit = new MenuEntry("Exit", font);
 
             ai.ClickedEvent += AI;
             versus.ClickedEvent += Versus;
-            multiplayer.ClickedEvent += Multiplayer;
+            create.ClickedEvent += Create;
+            join.ClickedEvent += Join;
             exit.ClickedEvent += Exit;
 
             menuEntries.Add(ai);
             menuEntries.Add(versus);
-            menuEntries.Add(multiplayer);
+            menuEntries.Add(create);
+            menuEntries.Add(join);
             menuEntries.Add(exit);
         }
 
@@ -41,9 +44,14 @@ namespace Pong.Screens.MenuSystem.Menus
             Game.screenMngr.SetScreen(new GameScreen(parent, GameMode.Versus));
         }
 
-        private void Multiplayer(object sender, EventArgs e)
+        private void Create(object sender, EventArgs e)
         {
             Game.screenMngr.SetScreen(new GameScreen(parent, GameMode.Online));
+        }
+
+        private void Join(object sender, EventArgs e)
+        {
+
         }
 
         private void Exit(object sender, EventArgs e)

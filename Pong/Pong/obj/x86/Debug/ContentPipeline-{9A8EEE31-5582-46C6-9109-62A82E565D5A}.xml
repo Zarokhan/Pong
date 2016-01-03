@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\git\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\dot.xnb</Output>
-      <Time>2016-01-03T19:00:14.8781189+01:00</Time>
+      <Output>D:\Git\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\dot.xnb</Output>
+      <Time>2016-01-03T18:59:59.997552+01:00</Time>
     </Item>
     <Item>
       <Source>Graphics\Player.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\git\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Player.xnb</Output>
-      <Time>2016-01-03T19:00:14.8721193+01:00</Time>
+      <Output>D:\Git\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Player.xnb</Output>
+      <Time>2016-01-03T18:59:59.9940549+01:00</Time>
     </Item>
     <Item>
       <Source>Graphics\Ball.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\git\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Ball.xnb</Output>
-      <Time>2016-01-03T19:00:14.8721193+01:00</Time>
+      <Output>D:\Git\Pong\Pong\Pong\bin\x86\Debug\Content\Graphics\Ball.xnb</Output>
+      <Time>2016-01-03T18:59:59.9935635+01:00</Time>
     </Item>
     <Item>
       <Source>Fonts\scorefont.spritefont</Source>
@@ -34,8 +34,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>E:\git\Pong\Pong\Pong\bin\x86\Debug\Content\Fonts\scorefont.xnb</Output>
-      <Time>2016-01-03T19:00:14.8711195+01:00</Time>
+      <Output>D:\Git\Pong\Pong\Pong\bin\x86\Debug\Content\Fonts\scorefont.xnb</Output>
+      <Time>2016-01-03T18:59:59.9930478+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -44,10 +44,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>E:\git\Pong\Pong\PongContent\</RootDirectory>
-      <LoggerRootDirectory>E:\git\Pong\Pong\Pong\</LoggerRootDirectory>
-      <IntermediateDirectory>E:\git\Pong\Pong\Pong\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>E:\git\Pong\Pong\Pong\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>D:\Git\Pong\Pong\PongContent\</RootDirectory>
+      <LoggerRootDirectory>D:\Git\Pong\Pong\Pong\</LoggerRootDirectory>
+      <IntermediateDirectory>D:\Git\Pong\Pong\Pong\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>D:\Git\Pong\Pong\Pong\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -76,7 +76,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-12-11T20:23:44.4271796+01:00</Value>
+        <Value>2015-09-10T19:49:08.2099259+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

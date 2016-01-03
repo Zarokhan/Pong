@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework.Input;
+using Pong.Utilities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -28,7 +30,20 @@ namespace Pong.Gameworld.Entities
             // Command Loop
             while(true)
             {
+                if (Input.Holding(Keys.Up))
+                {
+                    player.MoveUp();
+                    SendMessage(player.Position.ToString());
+                    Console.WriteLine(player.Position.ToString());
+                }
+            }
+        }
 
+        private void SendMessage(string message)
+        {
+            if(writer != null)
+            {
+                writer.Write(message);
             }
         }
     }
