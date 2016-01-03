@@ -1,5 +1,4 @@
-﻿using Lidgren.Network;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Pong.Gameworld.Entities;
@@ -7,21 +6,17 @@ using Pong.Screens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Pong.Gameworld
 {
     class World
     {
         private BaseScreen parent;
-        // Networking
-        NetPeerConfiguration config;
-        NetConnection con;
-        NetClient client;
-        NetIncomingMessage iMessage;
-        NetOutgoingMessage oMessage;
-
-        int pos = 0;
 
         // Screen Bounds
         public static int top, bottom, left, right;
@@ -33,7 +28,12 @@ namespace Pong.Gameworld
         private Ball ball;
 
         private static bool failed_hit = false;
-        
+
+        PlayerNet playerNetOne, playerNetTwo;
+        TcpListener listener;
+        Thread connThread;
+        private volatile bool running;
+
         public World(BaseScreen parent, GameMode mode)
         {
             this.parent = parent;
@@ -64,12 +64,44 @@ namespace Pong.Gameworld
                     break;
                 case GameMode.Online:
                     c1 = new PlayerController(Keys.Up, Keys.Down);
-                    //Networking
-                    config = new NetPeerConfiguration("RSPONG");
-                    client = new NetClient(config);
-                    client.Start();
-                    con = client.Connect("192.168.1.2", 14243);
+                    running = true;
+                    listener = new TcpListener(IPAddress.Any, 50000);
+                    connThread = new Thread(new ThreadStart(ConnectionListener));
+                    connThread.Start();
                     break;
+            }
+        }
+
+        public void ConnectionListener()
+        {
+            listener.Start();
+
+            while(running)
+            {
+                PlayerNet net = null;
+                try
+                {
+                    TcpClient client = listener.AcceptTcpClient();
+
+                    net = new PlayerNet(p1);
+
+                    Task task = new Task(new Action<object>(net.Run), client);
+                    task.Start();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+                if(playerNetOne == null)
+                {
+                    playerNetOne = net;
+                }
+                else if(playerNetTwo == null)
+                {
+                    playerNetTwo = net;
+                }
             }
         }
 
@@ -77,56 +109,7 @@ namespace Pong.Gameworld
         {
             if(mode == GameMode.Online)
             {
-                // Outgoing
-                oMessage = client.CreateMessage();
-                oMessage.WriteVariableInt32((int)(p1.Position.Y));
 
-                client.SendMessage(oMessage, con, NetDeliveryMethod.UnreliableSequenced);
-
-                // Incoming
-                if ((iMessage = client.ReadMessage()) != null)
-                {
-                    switch (iMessage.MessageType)
-                    {
-                        case NetIncomingMessageType.Error:
-                            break;
-                        case NetIncomingMessageType.StatusChanged:
-                            break;
-                        case NetIncomingMessageType.UnconnectedData:
-                            break;
-                        case NetIncomingMessageType.ConnectionApproval:
-                            break;
-                        case NetIncomingMessageType.Data:
-                            // handle custom messages
-                            int data = iMessage.ReadVariableInt32();
-                            p2.Position = new Vector2(p2.Position.X, data);
-                            Console.WriteLine("data: " + data);
-                            break;
-                        case NetIncomingMessageType.Receipt:
-                            break;
-                        case NetIncomingMessageType.DiscoveryRequest:
-                            break;
-                        case NetIncomingMessageType.DiscoveryResponse:
-                            break;
-                        case NetIncomingMessageType.VerboseDebugMessage:
-                            break;
-                        case NetIncomingMessageType.DebugMessage:
-                            break;
-                        case NetIncomingMessageType.WarningMessage:
-                            break;
-                        case NetIncomingMessageType.ErrorMessage:
-                            break;
-                        case NetIncomingMessageType.NatIntroductionSuccess:
-                            break;
-                        case NetIncomingMessageType.ConnectionLatencyUpdated:
-                            break;
-                        default:
-                            Console.WriteLine("unhandled message with type: " + iMessage.MessageType);
-                            break;
-                    }
-                    client.Recycle(iMessage);
-                    iMessage = null;
-                }
             }
 
             if(c1 != null)

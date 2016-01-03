@@ -1,3 +1,4 @@
 C:\Users\Simon\Desktop\Pong\Pong\PongContent\obj\x86\Debug\PongContent.contentprojResolveAssemblyReference.cache
 C:\Users\Zarokhan\Desktop\Pong-master\Pong\PongContent\obj\x86\Debug\PongContent.contentprojResolveAssemblyReference.cache
 C:\Users\Zarokhan\Desktop\Pong\Pong\PongContent\obj\x86\Debug\PongContent.contentprojResolveAssemblyReference.cache
+E:\git\Pong\Pong\PongContent\obj\x86\Debug\PongContent.contentprojResolveAssemblyReference.cache

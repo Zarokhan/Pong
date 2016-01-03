@@ -82,6 +82,7 @@
   <ItemGroup>
     <Compile Include="Gameworld\Entities\Ball.cs" />
     <Compile Include="Gameworld\Entities\PlayerAI.cs" />
+    <Compile Include="Gameworld\Entities\PlayerNet.cs" />
     <Compile Include="Screens\MenuSystem\Menus\MainMenuScreen.cs" />
     <Compile Include="Utilities\GameMode.cs" />
     <Compile Include="Gameworld\Entities\Entity.cs" />
